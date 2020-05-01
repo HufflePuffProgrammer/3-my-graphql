@@ -19,6 +19,8 @@ app.use(express.static("public")); // build public folder later
 app.get("*", (req, res) => {
   res.sendFile(path.resolve(__dirname, "public", "index.html"));
 });
-app.listen(4000, () => {
-  console.log("Now listening to port 4000");
+
+const PORT = process.env.PORT || 4000;
+app.listen(PORT, () => {
+  console.log(PORT);
 });
