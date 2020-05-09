@@ -8,13 +8,22 @@ const mongoose = require("mongoose");
 const app = express();
 
 mongoose.connect(
-  "mongodb+srv://richard:GCIuuJGES3bShWtS@cluster0-kxigh.mongodb.net/test?retryWrites=true&w=majority",
+  "mongodb+srv://richard:st9gp0eS83NUqUn5@cluster0-kxigh.mongodb.net/test?retryWrites=true&w=majority",
   { useNewUrlParser: true }
 );
 
 mongoose.connection.once("open", () => {
-  console.log("connected to mongoDB on web");
+  console.log("connected to new mongoDB on web");
 });
+
+// const MongoClient = require('mongodb').MongoClient;
+// const uri = "mongodb+srv://richard:<password>@cluster0-kxigh.mongodb.net/test?retryWrites=true&w=majority";
+// const client = new MongoClient(uri, { useNewUrlParser: true });
+// client.connect(err => {
+//   const collection = client.db("test").collection("devices");
+//   // perform actions on the collection object
+//   client.close();
+// });
 
 app.use(cors());
 
