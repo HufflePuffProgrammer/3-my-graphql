@@ -4,16 +4,24 @@ const schema = require("./schema/schema");
 const cors = require("cors");
 const path = require("path");
 const mongoose = require("mongoose");
+require("dotenv").config();
 // allow cross-corigin request
 const app = express();
 
+console.log("MongoDB URI");
+console.log(process.env.PORT);
+console.log(process.env.MONGODB_URI);
 mongoose.connect(
-  "mongodb+srv://richard:st9gp0eS83NUqUn5@cluster0-kxigh.mongodb.net/test?retryWrites=true&w=majority",
-  { useNewUrlParser: true }
+  process.env.MONGODB_URI ||
+    "mongodb+srv://jeff:3M31GqcRIwyyal59@cluster0-kxigh.mongodb.net/test?retryWrites=true&w=majority"
 );
+// mongoose.connect(
+//   "mongodb+srv://jeff:3M31GqcRIwyyal59@cluster0-kxigh.mongodb.net/test?retryWrites=true&w=majority",
+//   { useNewUrlParser: true }
+// );
 
 mongoose.connection.once("open", () => {
-  console.log("connected to new mongoDB on web");
+  console.log("JEff connected to new mongoDB on web");
 });
 
 // const MongoClient = require('mongodb').MongoClient;
